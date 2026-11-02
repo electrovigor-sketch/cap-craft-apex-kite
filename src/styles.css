@@ -1,0 +1,64 @@
+@import "tailwindcss";
+@import "@fontsource/vazirmatn/400.css";
+@import "@fontsource/vazirmatn/500.css";
+@import "@fontsource/vazirmatn/700.css";
+
+@theme {
+  --color-bg: #f3ece1;
+  --color-surface: #faf6ef;
+  --color-sheet: #fffdf8;
+  --color-fg: #1c1915;
+  --color-muted: #6d655b;
+  --color-primary: #9a3412;
+  --color-primary-fg: #fff7ed;
+  --color-border: #ddd4c4;
+  --color-ring: #9a3412;
+  --font-sans: "Vazirmatn", ui-sans-serif, system-ui, sans-serif;
+  --radius-lg: 1rem;
+  --radius-md: 0.75rem;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: var(--color-primary);
+    color: var(--color-primary-fg);
+  }
+}
+
+.qr-bitmap {
+  width: min(100%, var(--qr-px, 20rem));
+  height: auto;
+  aspect-ratio: 1;
+  image-rendering: pixelated;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
